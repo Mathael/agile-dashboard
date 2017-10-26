@@ -1,25 +1,35 @@
 package com.dashboard.api.services.impl;
 
 import com.dashboard.api.services.DefaultService;
-import com.dashboard.core.repository.CrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * @author LEBOC Philippe
  */
 @Service
-public abstract class DefaultServiceImpl<T, K, S extends CrudRepository<K, T>> implements DefaultService<T, K> {
+@Validated
+public abstract class DefaultServiceImpl<T, ID extends Serializable, S extends JpaRepository<T, ID>> implements DefaultService<T, ID> {
 
     @Autowired
     protected S repository;
 
     @Override
-    public T find(K id) {
-        return repository.find(id);
+    public T save(@Valid T object) {
+        return repository.save(object);
+    }
+
+    @Override
+    public T find(@NotNull ID id) {
+        return repository.findOne(id);
     }
 
     @Override
@@ -28,41 +38,41 @@ public abstract class DefaultServiceImpl<T, K, S extends CrudRepository<K, T>> i
     }
 
     @Override
-    public void update(T object) {
-        repository.update(object);
+    public void update(@Valid T object) {
+        repository.save(object);
     }
 
     @Async
     @Override
-    public void updateAsync(T object) {
-        repository.update(object);
+    public void updateAsync(@Valid T object) {
+        repository.save(object);
     }
 
     @Async
     @Override
-    public void deleteAsync(T object) {
+    public void deleteAsync(@NotNull T object) {
         repository.delete(object);
     }
 
     @Override
-    public void delete(T object) {
+    public void delete(@NotNull T object) {
         repository.delete(object);
     }
 
     @Async
     @Override
-    public void deleteAsyncById(K id) {
-        repository.deleteById(id);
+    public void deleteAsyncById(@NotNull ID id) {
+        repository.delete(id);
     }
 
     @Async
     @Override
     public void deleteAllAsync() {
-        // TODO: implement me
+        repository.deleteAll();
     }
 
     @Override
     public void deleteAll() {
-        // TODO: implement me
+        repository.deleteAll();
     }
 }

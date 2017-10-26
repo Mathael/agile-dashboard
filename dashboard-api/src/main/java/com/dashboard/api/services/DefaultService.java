@@ -1,27 +1,71 @@
 package com.dashboard.api.services;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
  * @author Leboc Philippe.
  */
-public interface DefaultService<T, K> {
+public interface DefaultService<T, ID> {
 
-    T find(K id);
+    /**
+     *
+     * @param object
+     * @return
+     */
+    T save(@Valid T object);
 
+    /**
+     *
+     * @param id
+     * @return
+     */
+    T find(@NotNull ID id);
+
+    /**
+     *
+     * @return
+     */
     List<T> findAll();
 
-    void update(T object);
+    /**
+     *
+     * @param object
+     */
+    void update(@Valid T object);
 
-    void updateAsync(T object);
+    /**
+     *
+     * @param object
+     */
+    void updateAsync(@Valid T object);
 
-    void delete(T object);
+    /**
+     *
+     * @param object
+     */
+    void delete(@NotNull T object);
 
-    void deleteAsync(T object);
+    /**
+     *
+     * @param object
+     */
+    void deleteAsync(@NotNull T object);
 
-    void deleteAsyncById(K id);
+    /**
+     *
+     * @param id
+     */
+    void deleteAsyncById(@NotNull ID id);
 
+    /**
+     *
+     */
     void deleteAll();
 
+    /**
+     *
+     */
     void deleteAllAsync();
 }
