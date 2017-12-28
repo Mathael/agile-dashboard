@@ -48,6 +48,11 @@
             <artifactId>dashboard-api</artifactId>
             <version>1.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.dashboard</groupId>
+            <artifactId>dashboard-core</artifactId>
+            <version>1.0.0</version>
+        </dependency>
         <!-- Spring dependencies -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

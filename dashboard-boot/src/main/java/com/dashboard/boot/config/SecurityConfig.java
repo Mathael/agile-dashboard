@@ -59,21 +59,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .csrf().disable()
             .exceptionHandling().authenticationEntryPoint(unauthorizedHandler)
             .and()
-            .logout()
-                .clearAuthentication(true).invalidateHttpSession(true).deleteCookies("JSESSIONID")
-                .logoutUrl("/logout")
-                .logoutSuccessUrl("/")
-                //.logoutSuccessHandler(logoutSuccessHandler)
-                .invalidateHttpSession(true)
-                //.addLogoutHandler(logoutHandler)
-                //.deleteCookies(cookieNamesToClear)
-            .and()
 
             // don't create session
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 
             .authorizeRequests()
-            //.antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+            .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 
             // allow anonymous resource requests
             .antMatchers(
@@ -86,7 +77,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     "/**/*.css",
                     "/**/*.js"
             ).permitAll()
-            .antMatchers(HttpMethod.POST, "/account-request").permitAll()
+            .antMatchers("/h2/**").permitAll()
             .antMatchers("/resources/**", "/register").permitAll()
             .antMatchers("/admin/**").hasRole("ADMIN")
             .antMatchers("/auth/**").permitAll()

@@ -1,9 +1,12 @@
 package com.dashboard.boot;
 
+import com.dashboard.core.configuration.DatabaseConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Import;
 import org.springframework.scheduling.annotation.AsyncConfigurerSupport;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -12,11 +15,13 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.util.concurrent.Executor;
 
+@Import(value = {DatabaseConfig.class})
 @EnableScheduling
 @EnableAsync
 @EnableWebMvc
 @SpringBootApplication
 @EnableAutoConfiguration
+@EntityScan(basePackages = "com.dashbord.core.model")
 @ComponentScan(basePackages = {"com.dashboard.api", "com.dashboard.core.model"})
 public class Application extends AsyncConfigurerSupport {
 
