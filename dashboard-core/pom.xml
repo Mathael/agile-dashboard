@@ -10,6 +10,9 @@
         <version>1.0.0</version>
     </parent>
 
+    <artifactId>dashboard-core</artifactId>
+    <version>1.0.0</version>
+
     <build>
         <plugins>
             <plugin>
@@ -19,16 +22,17 @@
         </plugins>
     </build>
 
-    <artifactId>dashboard-core</artifactId>
-    <version>1.0.0</version>
-
     <dependencies>
         <!-- Spring -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <version>${springboot.version}</version>
-            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+            <version>${springboot.version}</version>
         </dependency>
         <!-- Database -->
         <dependency>
@@ -36,7 +40,6 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
             <version>${springboot.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>

@@ -1,8 +1,9 @@
 package com.dashboard.core.model;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.Entity;
@@ -13,11 +14,12 @@ import javax.validation.constraints.Size;
 /**
  * @author Leboc Philippe.
  */
-@Data
-@Table(name = "account")
+@Getter
+@Setter
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "account")
 public class Account {
 
     @NotNull

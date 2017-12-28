@@ -17,7 +17,7 @@ import java.util.concurrent.Executor;
 @EnableWebMvc
 @SpringBootApplication
 @EnableAutoConfiguration
-@ComponentScan("com.dashboard.*")
+@ComponentScan(basePackages = {"com.dashboard.api", "com.dashboard.core.model"})
 public class Application extends AsyncConfigurerSupport {
 
     public static void main(String[] args) {
