@@ -1,5 +1,7 @@
 package com.dashboard.core.model.project;
 
+import com.dashboard.core.model.ticket.TicketSeverity;
+import com.dashboard.core.model.user.UserGroup;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,8 +10,11 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 /**
  * @author Leboc Philippe.
@@ -19,7 +24,7 @@ import javax.validation.constraints.Size;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "project")
+@Table(name = "projects")
 public class Project {
 
     @Id
@@ -30,4 +35,13 @@ public class Project {
 
     @Size(max = 500)
     private String description;
+
+    @OneToMany
+    private List<Sprint> sprints;
+
+    @OneToMany
+    private List<TicketSeverity> ticketSeverities;
+
+    @ManyToMany
+    private List<UserGroup> userGroups;
 }
