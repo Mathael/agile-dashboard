@@ -24,6 +24,9 @@
         <jackson-2-version>2.9.0.pr4</jackson-2-version>
         <lombok.version>1.16.16</lombok.version>
         <slf4j.version>1.7.25</slf4j.version>
+        <mysqlconnecter.version>6.0.6</mysqlconnecter.version>
+        <jwt.version>3.3.0</jwt.version>
+        <h2.version>1.4.196</h2.version>
     </properties>
 
     <modules>

@@ -29,12 +29,6 @@
             <artifactId>spring-boot-starter-web</artifactId>
             <version>${springboot.version}</version>
         </dependency>
-        <!-- Spring websocket -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-websocket</artifactId>
-            <version>${springboot.version}</version>
-        </dependency>
         <!-- Project dependencies -->
         <dependency>
             <groupId>com.dashboard</groupId>
