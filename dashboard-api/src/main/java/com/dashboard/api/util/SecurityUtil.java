@@ -1,5 +1,6 @@
 package com.dashboard.api.util;
 
+import com.dashboard.api.exception.PasswordEncodeException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -12,26 +13,17 @@ import java.util.Base64;
  * @author Leboc Philippe.
  */
 @Component
-public class PasswordUtil {
+public class SecurityUtil {
 
-    private static String algorithm;
+    private String algorithm;
 
-    private PasswordUtil() {}
+    private SecurityUtil() {}
 
-    /**
-     * @param password
-     * @return
-     */
-    public static String encode(String password) {
-        return encode(password, algorithm);
+    public String hash(String password) {
+        return hash(password, algorithm);
     }
 
-    /**
-     * @param password
-     * @param algorithm
-     * @return
-     */
-    public static String encode(String password, String algorithm) {
+    public String hash(String password, String algorithm) {
         final MessageDigest md;
         byte[] newPassword;
         try {
@@ -39,8 +31,7 @@ public class PasswordUtil {
             newPassword = password.getBytes("UTF-8");
             newPassword = md.digest(newPassword);
         } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
-            e.printStackTrace();
-            return null;
+            throw new PasswordEncodeException("Cannot hash the given password", e);
         }
 
         return Base64.getEncoder().encodeToString(newPassword);
@@ -48,6 +39,6 @@ public class PasswordUtil {
 
     @Value("${application.password.algorithm}")
     public void setAlgorithm(String algorithm) {
-        PasswordUtil.algorithm = algorithm;
+        this.algorithm = algorithm;
     }
 }
