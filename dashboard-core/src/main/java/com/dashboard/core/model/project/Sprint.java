@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -24,6 +25,7 @@ import javax.validation.constraints.Size;
 public class Sprint {
 
     @Id
+    @GeneratedValue
     private int id;
 
     @NotEmpty

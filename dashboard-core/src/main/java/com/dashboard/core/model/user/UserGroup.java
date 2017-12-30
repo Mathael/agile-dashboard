@@ -8,6 +8,7 @@ import lombok.Setter;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
@@ -25,6 +26,7 @@ import java.util.List;
 public class UserGroup {
 
     @Id
+    @GeneratedValue
     private int id;
 
     @NotEmpty

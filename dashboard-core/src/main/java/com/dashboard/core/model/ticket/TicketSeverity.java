@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -22,6 +23,7 @@ import javax.persistence.Table;
 public class TicketSeverity {
 
     @Id
+    @GeneratedValue
     private int id;
 
     @NotEmpty
