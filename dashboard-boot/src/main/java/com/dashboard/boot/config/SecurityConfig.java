@@ -77,6 +77,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     "/**/*.css",
                     "/**/*.js"
             ).permitAll()
+            .antMatchers("/test/**").permitAll()
             .antMatchers("/h2/**").permitAll()
             .antMatchers("/resources/**", "/register").permitAll()
             .antMatchers("/admin/**").hasRole("ADMIN")
@@ -87,6 +88,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
         // disable page caching
         http.headers().cacheControl();
+        http.headers().frameOptions().disable();
         http.httpBasic();
     }
 

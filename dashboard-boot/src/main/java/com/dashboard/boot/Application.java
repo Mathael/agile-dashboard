@@ -22,7 +22,7 @@ import java.util.concurrent.Executor;
 @SpringBootApplication
 @EnableAutoConfiguration
 @EntityScan(basePackages = "com.dashbord.core.model")
-@ComponentScan(basePackages = {"com.dashboard.api", "com.dashboard.core.model"})
+@ComponentScan(basePackages = "com.dashboard.*")
 public class Application extends AsyncConfigurerSupport {
 
     public static void main(String[] args) {
