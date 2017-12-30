@@ -4,7 +4,6 @@ import com.dashboard.api.services.DefaultService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.scheduling.annotation.Async;
-import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
 import javax.validation.Valid;
@@ -15,7 +14,6 @@ import java.util.List;
 /**
  * @author LEBOC Philippe
  */
-@Service
 @Validated
 public abstract class DefaultServiceImpl<T, ID extends Serializable, S extends JpaRepository<T, ID>> implements DefaultService<T, ID> {
 
