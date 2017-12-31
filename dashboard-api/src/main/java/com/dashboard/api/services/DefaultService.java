@@ -8,64 +8,14 @@ import java.util.List;
  * @author Leboc Philippe.
  */
 public interface DefaultService<T, ID> {
-
-    /**
-     *
-     * @param object
-     * @return
-     */
-    T save(@Valid T object);
-
-    /**
-     *
-     * @param id
-     * @return
-     */
-    T find(@NotNull ID id);
-
-    /**
-     *
-     * @return
-     */
+    T save(@NotNull @Valid T object);
+    T find(ID id);
     List<T> findAll();
-
-    /**
-     *
-     * @param object
-     */
-    void update(@Valid T object);
-
-    /**
-     *
-     * @param object
-     */
-    void updateAsync(@Valid T object);
-
-    /**
-     *
-     * @param object
-     */
-    void delete(@NotNull T object);
-
-    /**
-     *
-     * @param object
-     */
-    void deleteAsync(@NotNull T object);
-
-    /**
-     *
-     * @param id
-     */
-    void deleteAsyncById(@NotNull ID id);
-
-    /**
-     *
-     */
+    void update(@NotNull @Valid T object);
+    void updateAsync(@NotNull @Valid T object);
+    void delete(@NotNull @Valid T object);
+    void deleteAsync(@NotNull @Valid T object);
+    void deleteAsyncById(ID id);
     void deleteAll();
-
-    /**
-     *
-     */
     void deleteAllAsync();
 }

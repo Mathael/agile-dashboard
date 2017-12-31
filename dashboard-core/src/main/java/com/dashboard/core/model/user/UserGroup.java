@@ -12,7 +12,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 import java.util.List;
+
+import static java.util.Collections.emptyList;
 
 /**
  * @author Leboc Philippe.
@@ -32,9 +35,16 @@ public class UserGroup {
     @NotEmpty
     private String label;
 
+    @Size(max = 1000)
+    private String description;
+
     @ManyToMany
     private List<User> users;
 
     @ManyToMany
     private List<Project> projects;
+
+    public UserGroup(String label, String description) {
+        this(-1, label, description, emptyList(), emptyList());
+    }
 }

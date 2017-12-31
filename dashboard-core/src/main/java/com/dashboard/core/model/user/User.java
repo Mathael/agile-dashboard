@@ -1,19 +1,21 @@
 package com.dashboard.core.model.user;
 
-import com.dashboard.core.model.project.Project;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Collection;
 import java.util.List;
@@ -38,18 +40,24 @@ public class User implements UserDetails {
 
     @NotEmpty
     @Size(min = 3, max = 30)
+    @Column(nullable = false, unique = true)
     private String username;
 
     @NotEmpty
     @Size(min = 8)
     private String password;
 
+    @Email
+    @NotNull
+    private String email;
+
     @ManyToMany
     private List<UserGroup> groups;
 
-    public User(String username, String password) {
+    public User(String username, String password, String email) {
         setUsername(username);
         setPassword(password);
+        setEmail(email);
         setGroups(emptyList());
     }
 

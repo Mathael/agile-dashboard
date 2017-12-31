@@ -21,12 +21,12 @@ public abstract class DefaultServiceImpl<T, ID extends Serializable, S extends J
     protected S repository;
 
     @Override
-    public T save(@Valid T object) {
+    public T save(@NotNull @Valid T object) {
         return repository.save(object);
     }
 
     @Override
-    public T find(@NotNull ID id) {
+    public T find(ID id) {
         return repository.findOne(id);
     }
 
@@ -36,30 +36,30 @@ public abstract class DefaultServiceImpl<T, ID extends Serializable, S extends J
     }
 
     @Override
-    public void update(@Valid T object) {
+    public void update(@NotNull @Valid T object) {
         repository.save(object);
     }
 
     @Async
     @Override
-    public void updateAsync(@Valid T object) {
+    public void updateAsync(@NotNull @Valid T object) {
         repository.save(object);
     }
 
     @Async
     @Override
-    public void deleteAsync(@NotNull T object) {
+    public void deleteAsync(@NotNull @Valid T object) {
         repository.delete(object);
     }
 
     @Override
-    public void delete(@NotNull T object) {
+    public void delete(@NotNull @Valid T object) {
         repository.delete(object);
     }
 
     @Async
     @Override
-    public void deleteAsyncById(@NotNull ID id) {
+    public void deleteAsyncById(ID id) {
         repository.delete(id);
     }
 

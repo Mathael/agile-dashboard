@@ -71,8 +71,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers("/h2/**").permitAll()
             .antMatchers("/resources/**", "/register").permitAll()
             .antMatchers("/admin/**").hasRole("ADMIN")
-            .antMatchers("/auth/**").permitAll()
-            .anyRequest().authenticated();
+            .antMatchers("/auth/**").permitAll().anyRequest().permitAll();
+            //.anyRequest().authenticated();
 
         // Custom JWT based security filter
         //http.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);

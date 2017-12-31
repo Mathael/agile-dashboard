@@ -17,6 +17,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import java.util.List;
 
+import static java.util.Collections.emptyList;
+
 /**
  * @author Leboc Philippe.
  */
@@ -46,4 +48,8 @@ public class Project {
 
     @ManyToMany
     private List<UserGroup> userGroups;
+
+    public Project(String label, String description) {
+        this(-1, label, description, emptyList(), emptyList(), emptyList());
+    }
 }
