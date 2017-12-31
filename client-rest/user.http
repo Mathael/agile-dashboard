@@ -1,0 +1,24 @@
+### CREATE
+
+POST http://127.0.0.1:8080/user
+Content-Type: application/json
+
+{
+    "username": "alpha",
+    "password": "123456789",
+    "email": "alpha@test.com"
+}
+
+### FIND ALL
+
+GET http://127.0.0.1:8080/user
+
+### FIND BY ID
+
+GET http://127.0.0.1:8080/user/id/1
+
+### FIND BY USERNAME
+
+GET http://127.0.0.1:8080/user/alpha
+
+###
