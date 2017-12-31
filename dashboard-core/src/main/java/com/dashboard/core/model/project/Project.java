@@ -1,5 +1,6 @@
 package com.dashboard.core.model.project;
 
+import com.dashboard.core.model.ticket.Ticket;
 import com.dashboard.core.model.ticket.TicketSeverity;
 import com.dashboard.core.model.user.UserGroup;
 import lombok.AllArgsConstructor;
@@ -41,6 +42,9 @@ public class Project {
     private String description;
 
     @OneToMany
+    private List<Ticket> backlog;
+
+    @OneToMany
     private List<Sprint> sprints;
 
     @OneToMany
@@ -50,6 +54,6 @@ public class Project {
     private List<UserGroup> userGroups;
 
     public Project(String label, String description) {
-        this(-1, label, description, emptyList(), emptyList(), emptyList());
+        this(-1, label, description, emptyList(), emptyList(), emptyList(), emptyList());
     }
 }

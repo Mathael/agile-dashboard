@@ -1,5 +1,6 @@
 package com.dashboard.core.model.ticket;
 
+import com.dashboard.core.model.project.Project;
 import com.dashboard.core.model.project.Sprint;
 import com.dashboard.core.model.user.User;
 import lombok.AllArgsConstructor;
@@ -38,6 +39,9 @@ public class Ticket {
     private String description;
 
     private Duration estimatedTime;
+
+    @ManyToOne
+    private Project project;
 
     @ManyToOne
     private Sprint sprint;
