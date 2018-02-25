@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import static java.util.stream.Collectors.toList;
+import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
@@ -19,7 +20,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
  * @author LEBOC Philippe
  */
 @RestController
-@RequestMapping(value = "/user", produces = "application/json")
+@RequestMapping(value = "/user", produces = APPLICATION_JSON_UTF8_VALUE)
 public class UserController {
 
     @Autowired
