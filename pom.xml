@@ -17,7 +17,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <springboot.version>1.5.9.RELEASE</springboot.version>
+        <springboot.version>1.5.10.RELEASE</springboot.version>
         <spring-aspects.version>4.3.7.RELEASE</spring-aspects.version>
         <swagger2.version>2.6.1</swagger2.version>
         <swagger2-ui.version>2.6.1</swagger2-ui.version>
@@ -27,6 +27,9 @@
         <mysqlconnecter.version>6.0.6</mysqlconnecter.version>
         <jwt.version>3.3.0</jwt.version>
         <h2.version>1.4.196</h2.version>
+        <validation-api.version>2.0.1.Final</validation-api.version>
+        <hibernate-validation.version>6.0.7.Final</hibernate-validation.version>
+        <hibernate-validation-annotation-processor.version>6.0.7.Final</hibernate-validation-annotation-processor.version>
     </properties>
 
     <modules>
@@ -34,7 +37,6 @@
         <module>dashboard-boot</module>
         <module>dashboard-controller</module>
         <module>dashboard-core</module>
-        <module>dashboard-front</module>
     </modules>
 
     <profiles>
@@ -66,6 +68,22 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
+        </dependency>
+        <!-- Validation -->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>${validation-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate-validation.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator-annotation-processor</artifactId>
+            <version>${hibernate-validation-annotation-processor.version}</version>
         </dependency>
     </dependencies>
 </project>
