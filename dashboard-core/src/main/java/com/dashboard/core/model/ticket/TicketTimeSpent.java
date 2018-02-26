@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import java.time.Duration;
 import java.time.Instant;
 
@@ -32,5 +33,6 @@ public class TicketTimeSpent {
 
     private Instant recordDate;
 
+    @NotNull
     private User user;
 }

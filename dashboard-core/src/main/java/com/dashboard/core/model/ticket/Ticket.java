@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.Duration;
 
@@ -46,5 +47,8 @@ public class Ticket {
     @ManyToOne
     private Sprint sprint;
 
+    @NotNull
     private User author;
+
+    private TicketTimeSpent ticketTimeSpent;
 }

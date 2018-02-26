@@ -2,6 +2,7 @@ package com.dashboard.core.model.user;
 
 import com.dashboard.core.model.corporation.Corporation;
 import com.dashboard.core.model.corporation.CorporationAccess;
+import com.dashboard.core.validation.annotation.Username;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,7 +17,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Collection;
@@ -26,7 +27,7 @@ import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
 
 /**
- * @author Leboc Philippe.
+ * @author Leboc Philippe
  */
 @Getter
 @Setter
@@ -40,12 +41,11 @@ public class User implements UserDetails {
     @GeneratedValue
     private int id;
 
-    @NotEmpty
-    @Size(min = 3, max = 30)
+    @Username
     @Column(nullable = false, unique = true)
     private String username;
 
-    @NotEmpty
+    @NotBlank
     @Size(min = 8)
     private String password;
 

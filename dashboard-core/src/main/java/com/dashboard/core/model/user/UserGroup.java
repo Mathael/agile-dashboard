@@ -11,7 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.List;
 
@@ -32,7 +32,7 @@ public class UserGroup {
     @GeneratedValue
     private int id;
 
-    @NotEmpty
+    @NotBlank
     private String label;
 
     @Size(max = 1000)

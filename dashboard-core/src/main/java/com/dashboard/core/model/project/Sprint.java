@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
@@ -34,6 +35,7 @@ public class Sprint {
     @Size(max = 500)
     private String description;
 
+    @NotNull
     @ManyToOne
     private Project project;
 }
