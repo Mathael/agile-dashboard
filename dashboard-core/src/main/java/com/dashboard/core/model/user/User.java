@@ -1,11 +1,11 @@
 package com.dashboard.core.model.user;
 
+import com.dashboard.core.model.corporation.Corporation;
+import com.dashboard.core.model.corporation.CorporationAccess;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -15,6 +15,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Collection;
@@ -54,11 +56,18 @@ public class User implements UserDetails {
     @ManyToMany
     private List<UserGroup> groups;
 
+    private Corporation corporation;
+
+    private List<CorporationAccess> accesses;
+
+    /**
+     * Default constructor
+     * @param username The given username
+     * @param password The given password
+     * @param email The given email address
+     */
     public User(String username, String password, String email) {
-        setUsername(username);
-        setPassword(password);
-        setEmail(email);
-        setGroups(emptyList());
+        this(-1, username, password, email, emptyList(), null, emptyList());
     }
 
     @Override

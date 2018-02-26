@@ -6,8 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.validation.annotation.Validated;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
 
@@ -21,7 +19,7 @@ public abstract class DefaultServiceImpl<T, ID extends Serializable, S extends J
     protected S repository;
 
     @Override
-    public T save(@NotNull @Valid T object) {
+    public T save(T object) {
         return repository.save(object);
     }
 
@@ -36,24 +34,24 @@ public abstract class DefaultServiceImpl<T, ID extends Serializable, S extends J
     }
 
     @Override
-    public void update(@NotNull @Valid T object) {
+    public void update(T object) {
         repository.save(object);
     }
 
     @Async
     @Override
-    public void updateAsync(@NotNull @Valid T object) {
+    public void updateAsync(T object) {
         repository.save(object);
     }
 
     @Async
     @Override
-    public void deleteAsync(@NotNull @Valid T object) {
+    public void deleteAsync(T object) {
         repository.delete(object);
     }
 
     @Override
-    public void delete(@NotNull @Valid T object) {
+    public void delete(T object) {
         repository.delete(object);
     }
 
