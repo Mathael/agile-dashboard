@@ -1,4 +1,4 @@
-package com.dashboard.core.model;
+package com.dashboard.core.model.corporation;
 
 import com.dashboard.core.model.project.Project;
 import com.dashboard.core.model.user.User;
@@ -9,6 +9,7 @@ import lombok.Setter;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotBlank;
@@ -43,5 +44,6 @@ public class Corporation {
     @NotNull
     private List<Project> projects;
 
-    //private List<CorporationAccess> accessList;
+    @OneToMany
+    private List<CorporationAccess> accessList;
 }
