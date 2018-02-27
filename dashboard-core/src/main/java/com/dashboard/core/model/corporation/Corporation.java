@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -23,6 +24,7 @@ import java.util.List;
  */
 @Getter
 @Setter
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "corporation", uniqueConstraints = {
@@ -39,9 +41,11 @@ public class Corporation {
     private String name;
 
     @NotEmpty
+    @OneToMany
     private List<User> members;
 
     @NotNull
+    @OneToMany
     private List<Project> projects;
 
     @OneToMany

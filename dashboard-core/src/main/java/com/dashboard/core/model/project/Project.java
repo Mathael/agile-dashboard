@@ -1,5 +1,6 @@
 package com.dashboard.core.model.project;
 
+import com.dashboard.core.model.corporation.Corporation;
 import com.dashboard.core.model.ticket.Ticket;
 import com.dashboard.core.model.ticket.TicketSeverity;
 import com.dashboard.core.model.user.UserGroup;
@@ -12,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
@@ -53,7 +55,10 @@ public class Project {
     @ManyToMany
     private List<UserGroup> userGroups;
 
+    @ManyToOne
+    private Corporation corporation;
+
     public Project(String label, String description) {
-        this(-1, label, description, emptyList(), emptyList(), emptyList(), emptyList());
+        this(-1, label, description, emptyList(), emptyList(), emptyList(), emptyList(), null);
     }
 }

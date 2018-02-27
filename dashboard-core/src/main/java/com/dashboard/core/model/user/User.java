@@ -2,6 +2,7 @@ package com.dashboard.core.model.user;
 
 import com.dashboard.core.model.corporation.Corporation;
 import com.dashboard.core.model.corporation.CorporationAccess;
+import com.dashboard.core.model.ticket.TicketTimeSpent;
 import com.dashboard.core.validation.annotation.Username;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,6 +16,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -56,9 +59,14 @@ public class User implements UserDetails {
     @ManyToMany
     private List<UserGroup> groups;
 
+    @ManyToOne
     private Corporation corporation;
 
+    @ManyToMany
     private List<CorporationAccess> accesses;
+
+    @OneToMany
+    private List<TicketTimeSpent> ticketTimeSpents;
 
     /**
      * Default constructor
@@ -67,7 +75,7 @@ public class User implements UserDetails {
      * @param email The given email address
      */
     public User(String username, String password, String email) {
-        this(-1, username, password, email, emptyList(), null, emptyList());
+        this(-1, username, password, email, emptyList(), null, emptyList(), emptyList());
     }
 
     @Override
