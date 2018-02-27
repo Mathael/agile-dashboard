@@ -18,10 +18,8 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <springboot.version>1.5.10.RELEASE</springboot.version>
-        <spring-aspects.version>4.3.7.RELEASE</spring-aspects.version>
         <swagger2.version>2.6.1</swagger2.version>
         <swagger2-ui.version>2.6.1</swagger2-ui.version>
-        <jackson-2-version>2.9.0.pr4</jackson-2-version>
         <lombok.version>1.16.16</lombok.version>
         <slf4j.version>1.7.25</slf4j.version>
         <mysqlconnecter.version>6.0.6</mysqlconnecter.version>
@@ -48,13 +46,6 @@
         </profile>
         <profile>
             <id>prod</id>
-            <dependencies>
-                <dependency>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-tomcat</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-            </dependencies>
         </profile>
     </profiles>
 
@@ -68,22 +59,6 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
-        </dependency>
-        <!-- Validation -->
-        <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-            <version>${validation-api.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate.validator</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>${hibernate-validation.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate.validator</groupId>
-            <artifactId>hibernate-validator-annotation-processor</artifactId>
-            <version>${hibernate-validation-annotation-processor.version}</version>
         </dependency>
     </dependencies>
 </project>

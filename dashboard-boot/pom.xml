@@ -24,6 +24,9 @@
         <slf4j.version>1.7.25</slf4j.version>
         <mysqlconnecter.version>6.0.6</mysqlconnecter.version>
         <jwt.version>3.3.0</jwt.version>
+        <validation-api.version>2.0.1.Final</validation-api.version>
+        <hibernate-validation.version>6.0.7.Final</hibernate-validation.version>
+        <hibernate-validation-annotation-processor.version>6.0.7.Final</hibernate-validation-annotation-processor.version>
     </properties>
 
     <build>
@@ -36,6 +39,18 @@
     </build>
 
     <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </dependency>
+            </dependencies>
+        </profile>
         <profile>
             <id>prod</id>
             <dependencies>
@@ -98,6 +113,22 @@
             <groupId>com.auth0</groupId>
             <artifactId>java-jwt</artifactId>
             <version>${jwt.version}</version>
+        </dependency>
+        <!-- Validation -->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>${validation-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate-validation.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator-annotation-processor</artifactId>
+            <version>${hibernate-validation-annotation-processor.version}</version>
         </dependency>
     </dependencies>
 </project>
