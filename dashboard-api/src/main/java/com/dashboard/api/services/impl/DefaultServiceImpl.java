@@ -13,7 +13,7 @@ import java.util.List;
  * @author LEBOC Philippe
  */
 @Validated
-public abstract class DefaultServiceImpl<T, ID extends Serializable, S extends JpaRepository<T, ID>> implements DefaultService<T, ID> {
+public abstract class DefaultServiceImpl<T, K extends Serializable, S extends JpaRepository<T, K>> implements DefaultService<T, K> {
 
     @Autowired
     protected S repository;
@@ -24,7 +24,7 @@ public abstract class DefaultServiceImpl<T, ID extends Serializable, S extends J
     }
 
     @Override
-    public T find(ID id) {
+    public T find(K id) {
         return repository.findOne(id);
     }
 
@@ -57,7 +57,7 @@ public abstract class DefaultServiceImpl<T, ID extends Serializable, S extends J
 
     @Async
     @Override
-    public void deleteAsyncById(ID id) {
+    public void deleteAsyncById(K id) {
         repository.delete(id);
     }
 

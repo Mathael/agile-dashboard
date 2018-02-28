@@ -7,15 +7,15 @@ import java.util.List;
 /**
  * @author Leboc Philippe.
  */
-public interface DefaultService<T, ID> {
+public interface DefaultService<T, K> {
     T save(@NotNull @Valid T object);
-    T find(ID id);
+    T find(K id);
     List<T> findAll();
     void update(@NotNull @Valid T object);
     void updateAsync(@NotNull @Valid T object);
     void delete(@NotNull @Valid T object);
     void deleteAsync(@NotNull @Valid T object);
-    void deleteAsyncById(ID id);
+    void deleteAsyncById(K id);
     void deleteAll();
     void deleteAllAsync();
 }
