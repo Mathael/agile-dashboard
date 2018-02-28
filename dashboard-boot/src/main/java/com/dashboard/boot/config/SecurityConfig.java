@@ -1,5 +1,6 @@
 package com.dashboard.boot.config;
 
+import com.dashboard.api.annotation.profiles.Dev;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -16,6 +17,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 /**
  * @author LEBOC Philippe
@@ -46,8 +48,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .csrf().disable()
-            //.exceptionHandling().authenticationEntryPoint(null)
-            //.and()
+            .exceptionHandling().authenticationEntryPoint(null)
+            .and()
 
             // don't create session
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
@@ -56,31 +58,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 
             // allow anonymous resource requests
-            .antMatchers(
-                    HttpMethod.GET,
-                    "/",
-                    "/about",
-                    "/*.html",
-                    "/favicon.ico",
-                    "/**/*.html",
-                    "/**/*.css",
-                    "/**/*.js"
-            ).permitAll()
-            .antMatchers("/test/**").permitAll()
+            .antMatchers(HttpMethod.GET, "/favicon.ico").permitAll()
             .antMatchers("/h2/**").permitAll()
             .antMatchers("/resources/**", "/register").permitAll()
-            .antMatchers("/admin/**").hasRole("ADMIN")
-            .antMatchers("/auth/**").permitAll().anyRequest().permitAll();
-            //.anyRequest().authenticated();
+            .antMatchers("/api/auth/**").permitAll()
+            .antMatchers("/api/admin/**").hasRole("ADMIN")
+            .anyRequest().authenticated();
 
         // Custom JWT based security filter
-        //http.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
-        // disable page caching
-        http.headers().cacheControl();
+        http.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
+
         http.headers().frameOptions().disable();
         http.httpBasic();
     }
 
+    @Dev
     @Bean
     public UserDetailsService userDetailsService() {
         final InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
