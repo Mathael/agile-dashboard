@@ -21,13 +21,11 @@ html, body {
 
 .app-container {
     margin: 0;
-    text-shadow: 2px 2px 6px #000;
-    text-align: center;
+    min-height: calc(100vh - 96px);
+    padding: 80px 3rem 1rem;
     color: black;
-    background-color: #e7e7e7;
+    background-color: #FFF;
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .spacer {

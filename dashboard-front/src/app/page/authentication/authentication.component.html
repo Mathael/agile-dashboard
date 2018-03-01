@@ -1,0 +1,30 @@
+<div class="app-container">
+    <h1>Authentication</h1>
+    <p>Hey ! You must be logged in to retrieve your projects</p>
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Email" [formControl]="loginForm">
+            <mat-error *ngIf="loginForm.hasError('email') && !loginForm.hasError('required')">
+                Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="loginForm.hasError('required')">
+                Email is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Password" [formControl]="loginForm">
+            <mat-error *ngIf="loginForm.hasError('email') && !loginForm.hasError('required')">
+                Please enter a valid password
+            </mat-error>
+            <mat-error *ngIf="loginForm.hasError('required')">
+                Password is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <div class="button-row">
+            <button mat-raised-button>I already have an account</button>
+            <button mat-raised-button color="primary">Login</button>
+        </div>
+    </form>
+</div>

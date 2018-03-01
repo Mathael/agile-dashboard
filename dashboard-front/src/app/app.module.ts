@@ -1,24 +1,30 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgModule} from '@angular/core';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 
 import {AppComponent} from './app.component';
 import {MaterialModule} from './material/material.module';
+import { AuthenticationComponent } from './page/authentication/authentication.component';
+import {AppRoutingModule} from './app-routing.module';
+import {CanActivateAuthGuard} from './guard/can-activate-auth.guard';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        AuthenticationComponent
     ],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
+        FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
-        MaterialModule
+        MaterialModule,
+        AppRoutingModule
     ],
-    providers: [],
+    providers: [CanActivateAuthGuard],
     bootstrap: [AppComponent],
     entryComponents: []
 })
