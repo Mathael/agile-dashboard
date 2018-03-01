@@ -1,30 +1,39 @@
 <div class="app-container">
     <h1>Authentication</h1>
-    <p>Hey ! You must be logged in to retrieve your projects</p>
-    <form class="example-form">
+    <p>Hey ! You must be logged in to retrieve your projects !</p>
+    <form class="example-form" [formGroup]="form">
+
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="Email" [formControl]="loginForm">
-            <mat-error *ngIf="loginForm.hasError('email') && !loginForm.hasError('required')">
-                Please enter a valid email address
+            <input [(ngModel)]="account.email" matInput placeholder="Email" formControlName="email" required>
+            <mat-error *ngIf="form.controls['email'].hasError('email')">
+                Please enter a valid email address - from <strong>7 to 100</strong> characters
             </mat-error>
-            <mat-error *ngIf="loginForm.hasError('required')">
+            <mat-error *ngIf="form.controls['email'].hasError('required')">
                 Email is <strong>required</strong>
             </mat-error>
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="Password" [formControl]="loginForm">
-            <mat-error *ngIf="loginForm.hasError('email') && !loginForm.hasError('required')">
-                Please enter a valid password
+            <input [(ngModel)]="account.password" matInput placeholder="Password" formControlName="password" required>
+            <mat-error *ngIf="form.controls['password'].hasError('password')">
+                Please enter a valid password - from <strong>6 to 30</strong> characters
             </mat-error>
-            <mat-error *ngIf="loginForm.hasError('required')">
+            <mat-error *ngIf="form.controls['password'].hasError('required')">
                 Password is <strong>required</strong>
             </mat-error>
         </mat-form-field>
 
-        <div class="button-row">
-            <button mat-raised-button>I already have an account</button>
-            <button mat-raised-button color="primary">Login</button>
+        <div class="button-row" *ngIf="showLoginForm; else signup">
+            <button mat-raised-button (click)="toggleShowLoginForm()">I will create new account</button>
+            <button mat-raised-button color="primary" (click)="submitLogin()" [disabled]="!form.valid">Login</button>
         </div>
+
     </form>
 </div>
+
+<ng-template #signup>
+    <div class="button-row">
+        <button mat-raised-button (click)="toggleShowLoginForm()">I already have an account</button>
+        <button mat-raised-button color="primary" (click)="submitSignup()" [disabled]="!form.valid">Signup</button>
+    </div>
+</ng-template>
