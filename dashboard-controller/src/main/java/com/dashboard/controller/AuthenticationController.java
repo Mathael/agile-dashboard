@@ -13,7 +13,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
  * @author LEBOC Philippe
  */
 @RestController
-@RequestMapping(value = "/auth", produces = APPLICATION_JSON_UTF8_VALUE)
+@RequestMapping(value = "/api/auth", produces = APPLICATION_JSON_UTF8_VALUE)
 public class AuthenticationController {
 
     @ResponseStatus(code = HttpStatus.CREATED)
