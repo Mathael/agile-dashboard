@@ -2,7 +2,6 @@ package com.dashboard.boot;
 
 import com.dashboard.core.configuration.DatabaseConfig;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
@@ -20,7 +19,6 @@ import java.util.concurrent.Executor;
 @EnableAsync
 @EnableWebMvc
 @SpringBootApplication
-@EnableAutoConfiguration
 @EntityScan(basePackages = "com.dashbord.core.model")
 @ComponentScan(basePackages = "com.dashboard.*")
 public class Application extends AsyncConfigurerSupport {

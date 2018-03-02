@@ -10,16 +10,13 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 /**
- * @author Leboc Philippe.
+ * @author LEBOC Philippe
  */
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserCreationRequest {
-
-    @NotBlank
-    private String username;
+public class AuthenticationRequest {
 
     @Email
     @NotBlank
@@ -28,5 +25,4 @@ public class UserCreationRequest {
     @NotBlank
     @Size(min = 8, max = 30)
     private String password;
-
 }
