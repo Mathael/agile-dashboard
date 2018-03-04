@@ -55,5 +55,8 @@ public class Ticket {
     private User author;
 
     @OneToMany
+    private User affectedUser;
+
+    @OneToMany
     private List<TicketTimeSpent> ticketTimeSpent;
 }
