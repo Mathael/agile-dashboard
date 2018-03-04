@@ -19,3 +19,7 @@
     align-items: center;
     justify-content: space-around;
 }
+
+mat-form-field:not(:first-child) {
+    margin-top: 10px;
+}
