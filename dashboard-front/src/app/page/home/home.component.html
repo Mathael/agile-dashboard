@@ -1,0 +1,74 @@
+<div class="app-container">
+
+    <div class="filter">
+        <mat-form-field class="global-filter">
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+        </mat-form-field>
+    </div>
+
+    <div class="example-container mat-elevation-z8">
+
+        <div class="example-loading-shade" *ngIf="isLoadingResults || isLoadingError">
+            <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+            <div class="example-rate-limit-reached" *ngIf="isLoadingError">
+                API does not respond.
+            </div>
+        </div>
+
+        <mat-table [dataSource]="dataSource" matSort>
+
+            <ng-container matColumnDef="select">
+                <mat-header-cell *matHeaderCellDef>
+                    <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
+                                  [indeterminate]="selection.hasValue() && !isAllSelected()">
+                        All
+                    </mat-checkbox>
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+                                  [checked]="selection.isSelected(row)">
+                    </mat-checkbox>
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="label">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.label}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="description">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Description </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.description}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="backlogCount">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Backlog Ticket count </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.backlogCount}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="sprintCount">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Sprint count </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.sprintCount}} </mat-cell>
+            </ng-container>
+
+            <!-- Actions Column -->
+            <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Actions </mat-header-cell>
+                <mat-cell align="right" *matCellDef="let row" (click)="$event.stopPropagation()">
+                    <button mat-icon-button>
+                        <mat-icon color="primary">visibility</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="deleteDialog()">
+                        <mat-icon color="warn">cancel</mat-icon>
+                    </button>
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;" routerLink="/project/{{row.id}}"></mat-row>
+        </mat-table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 15, 20, 25, 50, 100]" [pageSize]="15"></mat-paginator>
+    </div>
+
+</div>

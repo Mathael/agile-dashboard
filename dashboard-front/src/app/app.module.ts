@@ -9,11 +9,13 @@ import {MaterialModule} from './material/material.module';
 import { AuthenticationComponent } from './page/authentication/authentication.component';
 import {AppRoutingModule} from './app-routing.module';
 import {CanActivateAuthGuard} from './guard/can-activate-auth.guard';
+import { HomeComponent } from './page/home/home.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        AuthenticationComponent
+        AuthenticationComponent,
+        HomeComponent
     ],
     imports: [
         BrowserModule,

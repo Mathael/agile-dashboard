@@ -1,0 +1,80 @@
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.example-header {
+    display: flex;
+    width: 100%;
+    min-height: 64px;
+    padding: 8px 24px 0;
+    box-sizing: border-box;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 25%;
+}
+
+.mat-table {
+    overflow: auto;
+    height: calc(100vh - 235px);
+}
+
+.mat-column-select {
+    overflow: initial;
+}
+
+mat-row {
+    min-height: 40px;
+}
+
+mat-header-cell {
+    font-weight: bold;
+    color: black;
+}
+
+mat-row:hover {
+    cursor: pointer;
+    background-color: #EEEEEE;
+}
+
+mat-cell mat-icon {
+    vertical-align: middle;
+}
+
+.example-radio-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 150px;
+}
+
+.example-loading-shade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 56px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.example-rate-limit-reached {
+    color: #980000;
+    max-width: 360px;
+    text-align: center;
+}
