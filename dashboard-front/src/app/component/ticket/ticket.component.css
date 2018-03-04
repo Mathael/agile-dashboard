@@ -1,0 +1,12 @@
+.card-container {
+    max-width: 400px;
+}
+
+.card-header-user-icon {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+.mat-card-header-text {
+    margin-left: 20px;
+}

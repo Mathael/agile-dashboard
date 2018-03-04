@@ -1,0 +1,16 @@
+<mat-card class="card-container">
+    <mat-card-header>
+        <div mat-card-avatar class="card-header-user-icon"></div>
+        <mat-card-title>{{ticket.label}}</mat-card-title>
+        <mat-card-subtitle>Author : {{ticket.author}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p>{{ticket.description}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <div>{{ticket.estimatedTime}}h</div>
+        <div class="spacer"></div>
+        <button mat-button>EDIT</button>
+        <button mat-button>SHOW</button>
+    </mat-card-actions>
+</mat-card>

@@ -10,12 +10,18 @@ import { AuthenticationComponent } from './page/authentication/authentication.co
 import {AppRoutingModule} from './app-routing.module';
 import {CanActivateAuthGuard} from './guard/can-activate-auth.guard';
 import { HomeComponent } from './page/home/home.component';
+import { ProjectComponent } from './page/project/project.component';
+import { SprintOverviewComponent } from './component/sprint-overview/sprint-overview.component';
+import { TicketComponent } from './component/ticket/ticket.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         AuthenticationComponent,
-        HomeComponent
+        HomeComponent,
+        ProjectComponent,
+        SprintOverviewComponent,
+        TicketComponent
     ],
     imports: [
         BrowserModule,
