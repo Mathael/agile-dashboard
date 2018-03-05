@@ -19,7 +19,8 @@ import {
     MatDividerModule,
     MatSelectModule,
     MatStepperModule,
-    MatListModule
+    MatListModule,
+    MatGridListModule
 } from '@angular/material';
 import {CdkTableModule} from '@angular/cdk/table';
 
@@ -44,7 +45,8 @@ import {CdkTableModule} from '@angular/cdk/table';
         MatDividerModule,
         MatSelectModule,
         MatStepperModule,
-        MatListModule
+        MatListModule,
+        MatGridListModule
     ],
     exports: [
         MatTableModule,
@@ -65,7 +67,8 @@ import {CdkTableModule} from '@angular/cdk/table';
         MatDividerModule,
         MatSelectModule,
         MatStepperModule,
-        MatListModule
+        MatListModule,
+        MatGridListModule
     ],
     declarations: []
 })

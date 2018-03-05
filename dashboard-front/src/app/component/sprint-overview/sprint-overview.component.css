@@ -1,0 +1,13 @@
+mat-grid-tile {
+    background: lightblue;
+}
+
+app-sprint-overview {
+    width: 100%;
+    height: fit-content;
+}
+
+.mat-figure {
+    display: flex;
+    flex-direction: row;
+}
