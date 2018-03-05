@@ -18,9 +18,10 @@ import {
     MatProgressSpinnerModule,
     MatDividerModule,
     MatSelectModule,
-    MatStepperModule
+    MatStepperModule,
+    MatListModule
 } from '@angular/material';
-import {CdkTableModule} from "@angular/cdk/table";
+import {CdkTableModule} from '@angular/cdk/table';
 
 @NgModule({
     imports: [
@@ -42,7 +43,8 @@ import {CdkTableModule} from "@angular/cdk/table";
         MatProgressSpinnerModule,
         MatDividerModule,
         MatSelectModule,
-        MatStepperModule
+        MatStepperModule,
+        MatListModule
     ],
     exports: [
         MatTableModule,
@@ -62,7 +64,8 @@ import {CdkTableModule} from "@angular/cdk/table";
         MatProgressSpinnerModule,
         MatDividerModule,
         MatSelectModule,
-        MatStepperModule
+        MatStepperModule,
+        MatListModule
     ],
     declarations: []
 })
