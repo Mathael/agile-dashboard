@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ProjectService} from '../../service/project.service';
 import {Project} from '../../model/Project';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, ParamMap} from '@angular/router';
 import {ProjectMock} from '../../mock/ProjectMock';
 
 @Component({
@@ -14,16 +14,18 @@ export class ProjectComponent implements OnInit {
 
     private project: Project;
 
-    constructor(private projectService: ProjectService, private route: ActivatedRoute) {
-    }
+    constructor(private projectService: ProjectService, private route: ActivatedRoute) {}
 
     ngOnInit() {
-        this.projectService
-            .find(this.route.params['id'])
-            .subscribe(
-                next => this.project = next,
-                error => this.project = ProjectMock.getData()[this.route.params['id']]
-            )
+        let failure = ProjectMock.getData()[1];
+        this.route.paramMap.subscribe((params:ParamMap) => {
+            let id = parseInt(params.get('id'));
+            this.projectService
+                .find(id)
+                .subscribe(
+                    next => this.project = next,
+                    error => this.project = failure
+                );
+        });
     }
-
 }

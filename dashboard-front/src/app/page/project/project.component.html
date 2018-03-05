@@ -1,5 +1,5 @@
 <div class="app-container">
     <h1>Current sprint overview</h1>
     <div>TODO: actions div</div>
-    <app-sprint-overview *ngIf="project.sprints.length > 0" [sprint]="project.sprints[0]"></app-sprint-overview>
+    <app-sprint-overview *ngIf="project && project.sprints && project.sprints.length > 0" [sprint]="project.sprints[0]"></app-sprint-overview>
 </div>
