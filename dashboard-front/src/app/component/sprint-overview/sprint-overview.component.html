@@ -1,64 +1,35 @@
-<!--<mat-list>
-
-    <mat-divider [vertical]="true"></mat-divider>
-    <mat-list-item>
-        <h1>Work in progress</h1>
-        <div *ngIf="sprint && sprint.tickets && sprint.tickets.length > 0">
-            <div *ngFor="let ticket of sprint.tickets">
-                <app-ticket [ticket]="ticket"></app-ticket>
-            </div>
-        </div>
-    </mat-list-item>
-    <mat-divider [vertical]="true"></mat-divider>
-    <mat-list-item>
-        <h1>Test</h1>
-        <div *ngIf="sprint && sprint.tickets && sprint.tickets.length > 0">
-            <div *ngFor="let ticket of sprint.tickets">
-                <app-ticket [ticket]="ticket"></app-ticket>
-            </div>
-        </div>
-    </mat-list-item>
-    <mat-divider [vertical]="true"></mat-divider>
-    <mat-list-item>
-        <h1>Done</h1>
-        <div *ngIf="sprint && sprint.tickets && sprint.tickets.length > 0">
-            <div *ngFor="let ticket of sprint.tickets">
-                <app-ticket [ticket]="ticket"></app-ticket>
-            </div>
-        </div>
-    </mat-list-item>
-</mat-list>-->
 <mat-grid-list cols="4" rowHeight="1:1.5">
     <mat-grid-tile>
-        <h1>Todo</h1>
-        <div *ngIf="sprint && sprint.tickets && sprint.tickets.length > 0">
-            <div *ngFor="let ticket of sprint.tickets">
-                <app-ticket [ticket]="ticket"></app-ticket>
+        <div class="sprint-column">
+            <h2>Todo</h2>
+            <div *ngIf="sprint && sprint.tickets && sprint.tickets.length > 0" class="sprint-ticket">
+                <app-ticket [ticket]="sprint.tickets[0]"></app-ticket>
             </div>
         </div>
     </mat-grid-tile>
     <mat-grid-tile>
-        <h1>Work in progress</h1>
-        <div *ngIf="sprint && sprint.tickets && sprint.tickets.length > 0">
-            <div *ngFor="let ticket of sprint.tickets">
-                <app-ticket [ticket]="ticket"></app-ticket>
+        <div class="sprint-column">
+            <h2>Work in progress</h2>
+            <div *ngIf="sprint && sprint.tickets && sprint.tickets.length > 0">
+                <div *ngFor="let ticket of sprint.tickets" class="sprint-ticket">
+                    <app-ticket [ticket]="ticket"></app-ticket>
+                </div>
             </div>
         </div>
     </mat-grid-tile>
     <mat-grid-tile>
-        <h1>Test</h1>
-        <div *ngIf="sprint && sprint.tickets && sprint.tickets.length > 0">
-            <div *ngFor="let ticket of sprint.tickets">
-                <app-ticket [ticket]="ticket"></app-ticket>
+        <div class="sprint-column">
+            <h2>Test</h2>
+            <div *ngIf="sprint && sprint.tickets && sprint.tickets.length > 0">
+                <div *ngFor="let ticket of sprint.tickets" class="sprint-ticket">
+                    <app-ticket [ticket]="ticket"></app-ticket>
+                </div>
             </div>
         </div>
     </mat-grid-tile>
     <mat-grid-tile>
-        <h1>Done</h1>
-        <div *ngIf="sprint && sprint.tickets && sprint.tickets.length > 0">
-            <div *ngFor="let ticket of sprint.tickets">
-                <app-ticket [ticket]="ticket"></app-ticket>
-            </div>
+        <div class="sprint-column">
+            <h2>Done</h2>
         </div>
     </mat-grid-tile>
 </mat-grid-list>

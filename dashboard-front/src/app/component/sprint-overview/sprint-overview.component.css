@@ -1,5 +1,20 @@
 mat-grid-tile {
-    background: lightblue;
+    background: #bee4f1;
+}
+
+.sprint-column {
+    flex-direction: column;
+    width: 95%;
+    height: 100%;
+}
+
+.sprint-column > h2 {
+    text-align: center;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 20px;
+    border-bottom: 1px solid black;
 }
 
 app-sprint-overview {
@@ -7,7 +22,6 @@ app-sprint-overview {
     height: fit-content;
 }
 
-.mat-figure {
-    display: flex;
-    flex-direction: row;
+.sprint-ticket:not(:first-child) {
+    margin: 10px 0 0 0;
 }
