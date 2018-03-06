@@ -10,3 +10,16 @@
 .mat-card-header-text {
     margin-left: 20px;
 }
+
+.estimated-time {
+    display: inline-block;
+    padding: 5px;
+    border: 1px solid;
+    border-radius: 8px;
+}
+
+mat-card-actions {
+    display: flex;
+    align-items: center;
+    margin: 8px 0 0 0;
+}

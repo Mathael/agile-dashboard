@@ -1,15 +1,15 @@
 <mat-card class="card-container">
     <mat-card-header>
-        <div mat-card-avatar class="card-header-user-icon"></div>
+            <div mat-card-avatar class="card-header-user-icon" matTooltip="Unknown affected User"></div>
         <mat-card-title>{{ticket.label}}</mat-card-title>
-        <mat-card-subtitle>Author : {{ticket.author}}</mat-card-subtitle>
+        <mat-card-subtitle>Affected : {{ticket.author}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
         <p>{{ticket.description}}</p>
     </mat-card-content>
     <mat-card-actions>
-        <div>{{ticket.estimatedTime}}h</div>
-        <div class="spacer"></div>
+        <div class="estimated-time">{{ticket.estimatedTime}}h</div>
+        <span class="spacer"></span>
         <button mat-button>EDIT</button>
         <button mat-button>SHOW</button>
     </mat-card-actions>
