@@ -13,6 +13,7 @@ import { HomeComponent } from './page/home/home.component';
 import { ProjectComponent } from './page/project/project.component';
 import { SprintOverviewComponent } from './component/sprint-overview/sprint-overview.component';
 import { TicketComponent } from './component/ticket/ticket.component';
+import {DragulaModule} from 'ng2-dragula';
 
 @NgModule({
     declarations: [
@@ -30,7 +31,8 @@ import { TicketComponent } from './component/ticket/ticket.component';
         ReactiveFormsModule,
         HttpClientModule,
         MaterialModule,
-        AppRoutingModule
+        AppRoutingModule,
+        DragulaModule
     ],
     providers: [CanActivateAuthGuard],
     bootstrap: [AppComponent],
