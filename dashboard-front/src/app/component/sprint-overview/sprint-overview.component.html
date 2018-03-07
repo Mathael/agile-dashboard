@@ -1,45 +1,37 @@
-<mat-grid-list cols="4" rowHeight="1:1.5">
-    <mat-grid-tile>
-        <div class="sprint-column">
-            <h2>Todo</h2>
-            <div class="dd-container" [dragula]='"first-bag"'>
-                <div *ngIf="sprint && sprint.tickets && sprint.tickets.length > 0" class="sprint-ticket">
-                    <app-ticket [ticket]="sprint.tickets[0]"></app-ticket>
+<div class="sprint-tabs-container">
+    <div class="sprint-column">
+        <h2>Todo</h2>
+        <div *ngIf="sprint && sprint.tickets && sprint.tickets.length > 0" class="dd-container">
+            <div [dragula]='"first-bag"'>
+                <app-ticket [ticket]="sprint.tickets[0]" class="sprint-ticket"></app-ticket>
+            </div>
+        </div>
+    </div>
+    <div class="sprint-column">
+        <h2>Work in progress</h2>
+        <div *ngIf="sprint && sprint.tickets && sprint.tickets.length > 0">
+            <div *ngFor="let ticket of sprint.tickets" class="dd-container">
+                <div [dragula]='"first-bag"'>
+                    <app-ticket [ticket]="ticket" class="sprint-ticket"></app-ticket>
                 </div>
             </div>
         </div>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <div class="sprint-column">
-            <h2>Work in progress</h2>
-            <div class="dd-container" [dragula]='"first-bag"'>
-                <div *ngIf="sprint && sprint.tickets && sprint.tickets.length > 0">
-                    <div *ngFor="let ticket of sprint.tickets" class="sprint-ticket">
-                        <app-ticket [ticket]="ticket"></app-ticket>
-                    </div>
+    </div>
+    <div class="sprint-column">
+        <h2>Test</h2>
+        <div *ngIf="sprint && sprint.tickets && sprint.tickets.length > 0">
+            <div *ngFor="let ticket of sprint.tickets" class="dd-container">
+                <div [dragula]='"first-bag"'>
+                    <app-ticket [ticket]="ticket" class="sprint-ticket"></app-ticket>
                 </div>
             </div>
         </div>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <div class="sprint-column">
-            <h2>Test</h2>
-            <div class="dd-container" [dragula]='"first-bag"'>
-                <div *ngIf="sprint && sprint.tickets && sprint.tickets.length > 0">
-                    <div *ngFor="let ticket of sprint.tickets" class="sprint-ticket">
-                        <app-ticket [ticket]="ticket"></app-ticket>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <div class="sprint-column">
-            <h2>Done</h2>
-            <div class="dd-container" [dragula]='"first-bag"'>
+    </div>
+    <div class="sprint-column">
+        <h2>Done</h2>
+        <div class="dd-container" [dragula]='"first-bag"'>
 
-            </div>
         </div>
-    </mat-grid-tile>
-</mat-grid-list>
+    </div>
+</div>
 
